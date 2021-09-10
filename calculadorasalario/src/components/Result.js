@@ -10,7 +10,12 @@ export default function Result(props) {
                     <Text style={styles.title}>RESUMEN</Text>
                     <DataResult title="Nombre:" value={`${name}`} />
                     <DataResult title="Salario base:" value={`${salary}$`} />
-                    <DataResult title="Deducciones:" value={`${netSalary.montlhyDeductions}$`} />
+                    <DataResult title="Deducciones:" value={`-${netSalary.montlhyDeductions}$`} />
+                      <View style={styles.indent}>
+                        <DataResult title="Descuento ISSS:" value={`-${netSalary.descuentoISSS}$`} />
+                        <DataResult title="Descuento AFP:" value={`-${netSalary.descuentoAFP}$`} />
+                        <DataResult title="Descuento Renta:" value={`-${netSalary.descuentoRenta}$`} />
+                      </View>
                     <DataResult 
                     title="Salario neto:"
                     value={`${netSalary.montlhyTotal}€`}
@@ -57,5 +62,8 @@ function DataResult(props) {
     color: '#f00', 
     fontWeight: 'bold', 
     fontSize: 20, 
+  },
+  indent:{
+    marginLeft:30,
   }, 
 }); 

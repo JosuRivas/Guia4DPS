@@ -19,7 +19,6 @@ import {
 } from 'react-native';
 import colors from './src/utils/colors';
 import Form from './src/components/Form';
-import Footer from './src/components/Footer';
 import Result from './src/components/Result';
 export default function App(){
   const [name, setName] = useState(null);
@@ -50,6 +49,9 @@ export default function App(){
         setNetSalary({
           montlhyTotal:total.toFixed(2).replace('.',','),
           montlhyDeductions:deductions.toFixed(2).replace('.',','),
+          descuentoRenta:renta.toFixed(2).replace('.',','),
+          descuentoAFP:afp.toFixed(2).replace('.',','),
+          descuentoISSS:isss.toFixed(2).replace('.',','),
         });
       }
     };
@@ -76,14 +78,14 @@ export default function App(){
     netSalary = {netSalary}
     errorMessage={errorMessage}
     />
-    <Footer></Footer>
+
     </>
   );
 }
 const styles = StyleSheet.create({
   Header:{
     backgroundColor:colors.PRIMARY_COLOR,
-    height:200,
+    height:250,
     borderBottomLeftRadius:30,
     borderBottomRightRadius:30,
     alignItems:'center'
@@ -94,4 +96,4 @@ const styles = StyleSheet.create({
     color:'#fff',
     marginTop:15,
   }
-})
+});
